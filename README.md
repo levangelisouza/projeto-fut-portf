@@ -1,22 +1,24 @@
-# ⚽ Projeto Fut-Portf
+# ⚽ projeto-fut-portf
 
-Pipeline de dados multi-cloud com AWS, Databricks e Power BI usando dados de jogadores de futebol.
+Pipeline de dados multi-cloud com AWS, Databricks e Power BI usando dados públicos de jogadores de futebol.  
+Este projeto simula um fluxo de engenharia de dados completo, desde a ingestão até a visualização final, com foco em performance, organização e escalabilidade.
 
-## 🔗 Stack utilizada
-- **AWS S3**: armazenamento de arquivos `.csv`
-- **AWS Glue + Athena**: catalogação e consulta SQL
-- **Azure Databricks (Community Edition)**: transformação com PySpark
-- **Power BI**: visualização final
-- **Python + Boto3**: automação do upload
+---
 
-## 🔍 Objetivo
-Construir um pipeline de ponta a ponta para análise de mercado de jogadores por nacionalidade, a partir de dados públicos do Kaggle.
+## 📌 Objetivo
 
-## 📊 Dashboard final
-![Dashboard](imgs/dashboard_preview.png)
+Construir um pipeline de ponta a ponta para análise de mercado de jogadores, organizando e transformando dados públicos em insights visuais de alto impacto.
 
-## 📁 Estrutura
-- `notebooks/`: notebook Databricks com transformação PySpark
-- `scripts/`: script Python para upload em S3
-- `powerbi/`: painel `.pbix`
-- `imgs/`: imagem do painel final
+---
+
+## 🧱 Arquitetura do Pipeline
+
+```mermaid
+graph TD
+A[Kaggle Dataset (CSV)] --> B[S3 - dados brutos]
+B --> C[Glue Crawler]
+C --> D[Glue Data Catalog]
+D --> E[Athena - consulta SQL]
+E --> F[Databricks - transformação PySpark]
+F --> G[Exportação .csv]
+G --> H[Power BI - visualização final]
